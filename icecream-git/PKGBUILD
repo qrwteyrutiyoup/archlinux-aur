@@ -3,7 +3,7 @@
 
 pkgname='icecream-git'
 _pkgname='icecream'
-pkgver=51fc506
+pkgver=0.0.0.0
 pkgrel=1
 pkgdesc='Distributed compiler with a central scheduler to share build load.'
 url='https://github.com/icecc/icecream'
@@ -35,7 +35,7 @@ sha256sums=('SKIP'
 
 pkgver() {
     cd "${_pkgname}"
-    git describe --always | sed 's|-|.|g' # Use the tag of the last commit
+    git describe --tags --long | sed 's/^v//;s/-/.r/;s/-/./g'
 }
 
 prepare() {
